@@ -1,26 +1,128 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #fafafa;
+  color: #111827;
+}
+
+.case-study {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 56px 32px;
+}
+
+.back-link {
+  font-size: 0.9rem;
+  text-decoration: underline;
+  color: #374151;
+}
+
+.case-hero {
+  margin-top: 36px;
+  margin-bottom: 64px;
+  max-width: 900px;
+}
+
+.case-eyebrow {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+.case-title {
+  font-size: 3rem;
+  line-height: 1.05;
+  font-weight: 750;
+  margin-bottom: 20px;
+}
+
+.case-lede {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #374151;
+}
+
+.case-section {
+  margin-bottom: 72px;
+}
+
+.case-section-narrow {
+  max-width: 860px;
+}
+
+.case-h2 {
+  font-size: 1.85rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.case-h3 {
+  font-size: 1.3rem;
+  font-weight: 650;
+  margin-bottom: 12px;
+}
+
+.case-h4 {
+  font-size: 1.05rem;
+  font-weight: 650;
+  margin-bottom: 8px;
+}
+
+.case-p {
+  line-height: 1.75;
+  color: #374151;
+  margin-bottom: 16px;
+}
+
+.case-list {
+  list-style: disc;
+  padding-left: 1.5rem;
+  color: #374151;
+  line-height: 1.7;
+}
+
+.case-list li {
+  margin-bottom: 8px;
+}
+
+.case-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 28px;
+  background: #ffffff;
+  box-shadow: 0 6px 24px rgba(15, 23, 42, 0.05);
+  margin-bottom: 32px;
+}
+
+.case-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.figure {
+  margin-top: 24px;
+  margin-bottom: 42px;
+}
+
+.figure-img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.08);
+}
+
+.figure-caption {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.tech-list {
+  color: #374151;
+  line-height: 1.7;
 }

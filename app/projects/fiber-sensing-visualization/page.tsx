@@ -1,0 +1,471 @@
+import Image from "next/image";
+
+export default function FiberSensingVisualizationPage() {
+  return (
+    <main className="max-w-4xl mx-auto p-8">
+      <a href="/" className="text-sm underline">
+        ← Back to Projects
+      </a>
+
+      <section className="mt-8 mb-12">
+        <p className="text-sm uppercase tracking-wide text-gray-500 mb-2">
+          Real-Time Research Visualization Platform
+        </p>
+
+        <h1 className="text-4xl font-bold mb-4">
+          Fiber Sensing Visualization Platform
+        </h1>
+
+        <p className="text-lg">
+          A browser-based visualization platform for NEC&apos;s distributed
+          fiber-optic sensing research, built with Python, RabbitMQ/STOMP, UDP
+          streams, JavaScript, and Three.js.
+        </p>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold mb-3">Overview</h2>
+
+        <p>
+          NEC&apos;s LS3300 distributed fiber-optic sensing system can detect
+          disturbances along a fiber cable, producing high-volume signal streams
+          that are powerful but difficult to interpret directly. The goal of
+          this project was to make those signals understandable during research
+          demonstrations by translating raw sensing data into visual views of
+          movement, vibration, frequency behavior, and spatial localization.
+        </p>
+
+        <p className="mt-4">
+          I worked across the Python backend and JavaScript/Three.js frontend to
+          build interactive visualizations, map fiber measurements to physical
+          floor coordinates, develop signal-analysis workflows, and improve the
+          demo setup process. The platform transformed live, simulated, and
+          replayed sensing data into floor maps, waterfall plots, frequency
+          views, activity histograms, and spatial heatmaps.
+        </p>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold mb-3">Demo Storytelling</h2>
+
+        <p className="mb-4">
+          Part of the challenge was explaining the sensing system to people who
+          were not familiar with distributed fiber sensing. I built visual demo
+          assets that connected the physical LS3300 hardware, the fiber line,
+          and the signal plots so viewers could understand what the system was
+          measuring before seeing the more technical localization views.
+        </p>
+
+        <video
+          src="/fiber-sensing/ls3300-fiber-demo.mov"
+          controls
+          className="w-full rounded-lg border"
+        >
+          Your browser does not support the video tag.
+        </video>
+
+        <p className="text-sm text-gray-600 mt-2">
+          Explanatory animation connecting the LS3300 hardware, fiber line, and
+          signal-change visualization.
+        </p>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold mb-3">Problem</h2>
+
+        <p className="mb-4">
+          The browser-based platform needed to solve several challenges:
+        </p>
+
+        <ul className="list-disc pl-6 space-y-2">
+          <li>
+            Raw fiber signals were high-volume and difficult to interpret
+            directly.
+          </li>
+          <li>
+            Fiber measurements existed in one-dimensional index space rather
+            than physical room coordinates.
+          </li>
+          <li>
+            The demo needed to connect raw sensing activity to real-world
+            movement in the room.
+          </li>
+          <li>
+            Noise and baseline drift made simple thresholding and color scaling
+            unreliable.
+          </li>
+          <li>
+            Live demonstrations required coordinating UDP data streams, backend
+            processing, RabbitMQ/STOMP messaging, and browser visualizations.
+          </li>
+          <li>
+            Experimental floor-localization logic needed to be separated into
+            reusable frontend and backend workflows.
+          </li>
+        </ul>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold mb-3">Solution</h2>
+
+        <p className="mb-4">
+          I built and refactored a browser-based visualization platform on top
+          of the existing sensing and streaming infrastructure. The system
+          supported live, simulated, and replayed sensing data, then rendered
+          those streams through interactive browser-based views.
+        </p>
+
+        <div className="rounded-lg border p-4 font-mono text-sm whitespace-pre-wrap mb-8">
+{`Fiber sensing data / simulated playback
+    ↓
+UDP data stream
+    ↓
+Python processing pipeline
+    ↓
+RabbitMQ / STOMP topics
+    ↓
+Three.js browser visualizations
+    ↓
+Floor maps, FFT/PCA views, histograms, heatmaps`}
+        </div>
+
+        <div className="space-y-6">
+          <div>
+            <h3 className="text-xl font-semibold mb-2">
+              Real-Time Visualization Frontend
+            </h3>
+            <p>
+              Built browser-based Three.js views for floor maps, raw signal
+              displays, waterfall plots, frequency-location plots, PCA views,
+              activity histograms, and spatial heatmaps. These views helped
+              translate abstract sensor streams into visuals that could be used
+              during research demonstrations.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold mb-2">
+              Spatial Localization
+            </h3>
+            <p>
+              Mapped one-dimensional fiber measurements to two-dimensional room
+              coordinates using segment geometry and fiber-index lookup logic,
+              allowing the demo to show sensing activity on a physical floor
+              layout instead of only as signal traces.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold mb-2">
+              Signal Calibration and Activity Detection
+            </h3>
+            <p>
+              Experimented with baseline calibration, z-score coloring, rolling
+              and EWMA baselines, median/MAD calibration, persistent histograms,
+              and decay-based activity maps to make movement easier to
+              distinguish from noise.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold mb-2">
+              Backend Processing Refactor
+            </h3>
+            <p>
+              Refactored backend FloorWriter logic to separate legacy streaming
+              histogram behavior from newer batch activation-based localization
+              logic, making the system easier to test, compare, and extend.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold mb-2">
+              Demo Infrastructure
+            </h3>
+            <p>
+              Added simulated and playback data paths and automated the
+              multi-process demo startup with tmux, coordinating backend
+              processing, UDP ingestion, and frontend serving for faster
+              testing.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold mb-3">
+          From Fiber Cable to Physical Movement
+        </h2>
+
+        <p className="mb-4">
+          One of the biggest lessons from this project was realizing that
+          localization was much harder than it initially appeared.
+        </p>
+
+        <p className="mb-6">
+          The sensing system measured activity along a one-dimensional fiber
+          cable, but users wanted to know where someone was standing inside a
+          room. Because the fiber doubled back on itself beneath the floor, a
+          single physical location could influence multiple fiber regions,
+          making the relationship between signal and position ambiguous.
+        </p>
+
+        <div className="grid md:grid-cols-[1fr_auto_1fr] gap-4 items-center mb-3">
+          <div>
+            <Image
+              src="/fiber-sensing/fiber-layout.svg"
+              alt="Simplified fiber routing beneath the demo room"
+              width={900}
+              height={1100}
+              className="w-full rounded-lg border"
+            />
+          </div>
+
+          <div className="hidden md:block text-4xl text-gray-400">
+            →
+          </div>
+
+          <div>
+            <video
+              src="/fiber-sensing/floor-movement-demo.mov"
+              controls
+              className="w-full rounded-lg border"
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <p className="text-sm text-gray-600 mb-6">
+          Left: simplified fiber routing beneath the demo room. Right: early
+          movement-tracking visualization projecting sensing activity onto the
+          room layout.
+        </p>
+
+        <p>
+          To make the data more interpretable, I built a mapping layer that
+          translated fiber indices into physical room coordinates and projected
+          sensor activity onto a floor layout. While the resulting visualizations
+          were effective for demonstrations, they also revealed the limitations
+          of the approach and motivated later experiments with histogram-based
+          localization, activity persistence, interpolation, and PCA-based
+          analysis.
+        </p>
+
+        <p className="mt-4">
+          The hardest part of localization was not rendering the visualization.
+          It was understanding the assumptions hidden behind it.
+        </p>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold mb-3">
+          Spatial Heatmap Experiments
+        </h2>
+
+        <p className="mb-6">
+          After mapping fiber indices to x/y coordinates, I experimented with
+          interpolation and activity accumulation methods to make movement
+          patterns easier to interpret as spatial heatmaps.
+        </p>
+
+        <Image
+          src="/fiber-sensing/interpolation-heatmap.png"
+          alt="Interpolated fiber sensing heatmap"
+          width={1200}
+          height={1400}
+          className="rounded-lg border mb-2"
+        />
+
+        <p className="text-sm text-gray-600">
+          Interpolation experiment using mapped sensing locations and
+          z-score-calibrated activity values.
+        </p>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold mb-3">
+          Signal Calibration and Baseline Tracking
+        </h2>
+
+        <p className="mb-4">
+          Because the sensing data contained noise and baseline variation, I
+          tested calibration views that showed expected activity, histogram
+          behavior, and deviations from baseline. These views helped separate
+          meaningful movement from random fluctuations.
+        </p>
+
+        <video
+          src="/fiber-sensing/baseline-histogram-demo.mov"
+          controls
+          className="w-full rounded-lg border"
+        >
+          Your browser does not support the video tag.
+        </video>
+
+        <p className="text-sm text-gray-600 mt-2">
+          Calibration view showing baseline activity, spatial noise, and
+          histogram behavior during quiet periods.
+        </p>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold mb-3">
+          Frequency and Dimensionality Experiments
+        </h2>
+
+        <p className="mb-6">
+          I also explored ways to make frequency behavior easier to inspect
+          across many fiber locations. One experiment used PCA to project
+          location-level frequency data into a smaller set of principal
+          components, making it easier to reason about correlated vibration
+          patterns.
+        </p>
+
+        <Image
+          src="/fiber-sensing/pca-frequency-notes-crop.png"
+          alt="PCA experiment notes for reducing fiber-location dimensions"
+          width={1400}
+          height={800}
+          className="rounded-lg border mb-2"
+        />
+
+        <p className="text-sm text-gray-600">
+          Exploratory notes on reducing fiber-location dimensions after FFT so
+          frequency behavior could be viewed across fewer principal components.
+        </p>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold mb-3">
+          Demo Hardware Visualization
+        </h2>
+
+        <p className="mb-4">
+          I also created supporting visual assets, including a Blender model of
+          the LS3300 sensing unit, to make the physical hardware easier to
+          explain alongside the live signal visualizations.
+        </p>
+
+        <video
+          src="/fiber-sensing/ls3300-blender-model.mov"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full rounded-lg border"
+        >
+          Your browser does not support the video tag.
+        </video>
+
+        <p className="text-sm text-gray-600 mt-2">
+          Blender model used as a demo storytelling asset for explaining the
+          LS3300 sensing unit.
+        </p>
+      </section>
+
+      <section className="mb-12">
+  <h2 className="text-2xl font-semibold mb-3">
+    Acoustic Fingerprint Demo
+  </h2>
+
+  <p className="mb-4">
+    One of the more fun demo assets I worked with synced music playback to the
+    system&apos;s acoustic response, showing how different sounds produced
+    distinct sensing patterns along the fiber. It helped make the idea of an
+    “acoustic fingerprint” more intuitive for non-technical viewers.
+  </p>
+
+  <video
+    src="/fiber-sensing/acoustic-fingerprint-demo.mov"
+    controls
+    className="w-full rounded-lg border"
+  >
+    Your browser does not support the video tag.
+  </video>
+
+  <p className="text-sm text-gray-600 mt-2">
+    Music-synced demo showing how sound produced a recognizable acoustic
+    fingerprint in the fiber sensing data.
+  </p>
+</section>
+
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold mb-3">Results</h2>
+
+        <ul className="list-disc pl-6 space-y-2">
+          <li>
+            Built a browser-based visualization platform for live, simulated,
+            and replayed LS3300 fiber sensing data.
+          </li>
+          <li>
+            Created 15+ interactive visualization modes across signal,
+            frequency, spatial, and demo storytelling views.
+          </li>
+          <li>
+            Transformed 20 kHz multi-channel sensing streams into real-time
+            floor maps, FFT/PCA views, activity histograms, and spatial
+            heatmaps.
+          </li>
+          <li>
+            Mapped one-dimensional fiber measurements to two-dimensional floor
+            coordinates for spatial activity visualization.
+          </li>
+          <li>
+            Built floor-layout views that connected raw signal changes to
+            visible movement in the room.
+          </li>
+          <li>
+            Implemented baseline calibration, z-score coloring, persistent
+            histograms, and heatmap-style localization experiments.
+          </li>
+          <li>
+            Refactored backend FloorWriter logic to separate legacy streaming
+            behavior from newer localization workflows.
+          </li>
+          <li>
+            Added simulated and playback data support for development and
+            demonstrations without live hardware.
+          </li>
+          <li>
+            Automated multi-process demo startup with tmux for faster testing.
+          </li>
+        </ul>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold mb-3">What I Learned</h2>
+
+        <p>
+          This project was my first experience working on a research system
+          where the correct answer was not always known ahead of time. Many of
+          the challenges were not traditional software bugs. They came from
+          noisy data, changing requirements, imperfect assumptions, and the
+          difficulty of connecting physical behavior to sensor measurements.
+        </p>
+
+        <p className="mt-4">
+          I learned how to work across the stack, from backend processing and
+          messaging infrastructure to frontend visualization and demo design.
+          More importantly, I learned that a convincing visualization is only
+          useful if you understand the assumptions that produced it.
+        </p>
+
+        <p className="mt-4">
+          That lesson has influenced how I approach data-driven systems ever
+          since: before asking what the data says, first ask what assumptions
+          need to be true for that conclusion to make sense.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-2xl font-semibold mb-3">Technologies</h2>
+
+        <p>
+          Python, JavaScript, Three.js, RabbitMQ, STOMP, UDP, HTML, CSS, Signal
+          Processing, FFT, PCA, Data Visualization, Blender, tmux
+        </p>
+      </section>
+    </main>
+  );
+}
