@@ -84,22 +84,20 @@ export default function Home() {
     "FFT",
     "Data Visualization"
   ],
-},
-{
+},{
   title: "OCR Statement Extraction",
   status: "In Progress",
-  href: "/projects/ocr-statement-extraction",
   problem:
     "Bank and credit card statements often store transaction data in visually structured PDF layouts rather than clean tables. Standard text extraction loses row and column positioning, making it difficult to reliably identify transaction dates, descriptions, amounts, and balances.",
   solution:
-    "Built a Python OCR pipeline that extracts word-level text and coordinates from PDF statements, groups words into visual lines, scores candidate transaction rows using regex and layout heuristics, and prepares structured transaction data for manual review and correction.",
+    "Building a Python OCR pipeline that extracts word-level text and coordinates from PDF statements, groups words into visual lines, scores candidate transaction rows using regex and layout heuristics, and prepares structured transaction data for manual review and correction.",
   impact: [
-    "Processed 3 sample financial statements, including 2 bank statements and 1 credit card statement.",
-    "Grouped OCR words into transaction-like rows using y-coordinate proximity.",
-    "Designed regex patterns for dates, amounts, and merchant text.",
-    "Built transaction scoring logic to filter statement metadata from likely transaction rows.",
-    "Started designing column-bound inference to parse dates, descriptions, debit/credit amounts, and balances.",
-    "Planned editable review workflow where user corrections can improve future parsing and categorization.",
+    "Processes sample bank and credit card statements using OCR.",
+    "Groups OCR words into transaction-like rows using y-coordinate proximity.",
+    "Uses regex patterns to identify dates, amounts, and merchant text.",
+    "Applies transaction scoring logic to distinguish statement metadata from likely transaction rows.",
+    "Designs column-bound inference to parse dates, descriptions, debit/credit amounts, and balances.",
+    "Develops an editable review workflow where user corrections improve future parsing and categorization.",
   ],
   technologies: [
     "Python",
