@@ -10,7 +10,8 @@ function statusClass(status: string) {
 type Project = {
   title: string;
   status: string;
-  href: string;
+  href?: string;
+  available?: boolean;
   image?: string;
   imageAlt?: string;
   imageFit?: "cover" | "contain";
@@ -51,6 +52,7 @@ export default function Home() {
     {
       title: "Fiber Sensing Visualization Platform",
       status: "Completed",
+      available: true,
       href: "/projects/fiber-sensing-visualization",
       image: "/fiber-sensing/fiber-to-room-card.jpg",
       imageAlt:
@@ -64,6 +66,7 @@ export default function Home() {
     {
       title: "Weekly Reporting Platform",
       status: "Deployed",
+      available: true,
       href: "/projects/weekly-reporting",
       image: "/weekly-reporting/weekly-submission-card.jpg",
       imageAlt: "Weekly reporting submission application screenshot",
@@ -76,6 +79,7 @@ export default function Home() {
     {
       title: "NECLA Externally Funded Project Tracking Platform",
       status: "In Progress",
+      available: true,
       href: "/projects/necla-project-tracking",
       image: "/necla-project-tracking/dashboard-card.jpg",
       imageAlt: "NECLA project tracking dashboard screenshot",
@@ -88,9 +92,9 @@ export default function Home() {
     {
       title: "Bargaining Experiment",
       status: "Completed",
-      href: "/projects/bargaining-experiment",
+      available: false,
       image: "/bargaining-experiment/interface-card.jpg",
-      imageAlt: "Bargaining experiment triangle interface concept",
+      imageAlt: "Bargaining experiment triangle interface",
       imageFit: "contain",
       summary:
         "Interactive oTree experiment studying gender-based negotiation strategies with dynamic offers and real-time currency decay",
@@ -100,6 +104,7 @@ export default function Home() {
     {
       title: "NurSync",
       status: "Completed",
+      available: true,
       href: "/projects/nursync",
       placeholderTone: "slate",
       placeholderCode: "demo · ranked 1st / 15",
@@ -111,7 +116,8 @@ export default function Home() {
     {
       title: "Tax-Man Finder",
       status: "In Progress",
-      href: "/projects/tax-man-finder",
+      available: false,
+      image: undefined,
       placeholderTone: "ocean",
       placeholderCode: "full-stack · websockets",
       summary:
@@ -122,7 +128,7 @@ export default function Home() {
     {
       title: "OCR Statement Extraction",
       status: "In Progress",
-      href: "/projects/ocr-statement-extraction",
+      available: false,
       placeholderTone: "amber",
       placeholderCode: "pipeline · in progress",
       summary:
@@ -220,12 +226,9 @@ export default function Home() {
           </h2>
 
           <div className="project-gallery">
-            {projects.map((project) => (
-              <Link
-                key={project.title}
-                href={project.href}
-                className="project-card project-card-link"
-              >
+            {projects.map((project) => {
+              const isAvailable = project.available !== false && Boolean(project.href);
+              const media = (
                 <div
                   className={`project-media${
                     project.imageFit === "contain" ? " project-media-contain" : ""
@@ -257,7 +260,9 @@ export default function Home() {
                     </div>
                   )}
                 </div>
+              );
 
+              const body = (
                 <div className="project-body">
                   <div className="project-header">
                     <h3 className="project-title">{project.title}</h3>
@@ -279,16 +284,43 @@ export default function Home() {
                   </div>
 
                   <div className="project-footer">
-                    <span className="text-link">
-                      Learn more
-                      <span className="text-link-arrow" aria-hidden="true">
-                        →
+                    {isAvailable ? (
+                      <span className="text-link">
+                        Learn more
+                        <span className="text-link-arrow" aria-hidden="true">
+                          →
+                        </span>
                       </span>
-                    </span>
+                    ) : (
+                      <span className="project-coming-soon">Coming soon</span>
+                    )}
                   </div>
                 </div>
-              </Link>
-            ))}
+              );
+
+              if (isAvailable) {
+                return (
+                  <Link
+                    key={project.title}
+                    href={project.href!}
+                    className="project-card project-card-link"
+                  >
+                    {media}
+                    {body}
+                  </Link>
+                );
+              }
+
+              return (
+                <article
+                  key={project.title}
+                  className="project-card project-card-muted"
+                >
+                  {media}
+                  {body}
+                </article>
+              );
+            })}
           </div>
         </section>
 

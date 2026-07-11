@@ -1,19 +1,15 @@
-import Link from "next/link";
+import CaseShell from "@/app/components/CaseShell";
 
 export default function OCRStatementExtractionPage() {
   return (
-    <main className="max-w-4xl mx-auto p-8">
-      <Link href="/#projects" className="text-sm underline">
-        ← Back to Projects
-      </Link>
-
-      <h1 className="text-4xl font-bold mb-2 mt-8">
-        OCR Statement Extraction
-      </h1>
-
-      <p className="text-gray-600 mb-8">
-        Status: In Progress
-      </p>
+    <CaseShell>
+      <section className="case-hero">
+        <p className="text-sm uppercase tracking-wide text-gray-500 mb-2">
+          Document Processing Pipeline
+        </p>
+        <h1 className="text-4xl font-bold mb-4">OCR Statement Extraction</h1>
+        <p className="text-lg">Status: In Progress</p>
+      </section>
 
       <section className="mb-10">
         <h2 className="text-2xl font-semibold mb-4">Overview</h2>
@@ -224,6 +220,6 @@ export default function OCRStatementExtractionPage() {
           ))}
         </div>
       </section>
-    </main>
+    </CaseShell>
   );
 }

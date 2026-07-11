@@ -1,14 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
+import CaseShell from "@/app/components/CaseShell";
 
 export default function BargainingExperimentPage() {
   return (
-    <main className="max-w-4xl mx-auto p-8">
-      <Link href="/#projects" className="text-sm underline">
-        ← Back to Projects
-      </Link>
-
-      <section className="mt-8 mb-12">
+    <CaseShell>
+      <section className="case-hero">
         <p className="text-sm uppercase tracking-wide text-gray-500 mb-2">
           Behavioral Economics · Interactive Experiment
         </p>
@@ -36,16 +32,15 @@ export default function BargainingExperimentPage() {
 
       <section className="mb-12">
         <Image
-          src="/bargaining-experiment/interface-hero.svg"
-          alt="Concept rendering of the bargaining triangle interface"
+          src="/bargaining-experiment/interface-card.jpg"
+          alt="Bargaining experiment triangle interface"
           width={1600}
           height={1000}
           className="w-full rounded-lg border bg-white"
         />
         <p className="text-sm text-gray-600 mt-2">
-          Concept view of the interactive bargaining interface: a shared surplus
-          triangle, participant icons, timers, and real-time offer/agreement
-          state.
+          Main bargaining interface with countdown timer, first-offer controls,
+          participant values, and the shared allocation triangle
         </p>
       </section>
 
@@ -184,7 +179,7 @@ export default function BargainingExperimentPage() {
             />
             <p className="text-sm text-gray-600 mt-2">
               Participant icons used to make gender composition visible during
-              bargaining rounds.
+              bargaining rounds
             </p>
           </div>
           <div>
@@ -197,7 +192,7 @@ export default function BargainingExperimentPage() {
             />
             <p className="text-sm text-gray-600 mt-2">
               Matching icon set for female participants, loaded dynamically
-              based on group assignment.
+              based on group assignment
             </p>
           </div>
         </div>
@@ -240,6 +235,6 @@ export default function BargainingExperimentPage() {
           clean experimental data possible.
         </p>
       </section>
-    </main>
+    </CaseShell>
   );
 }

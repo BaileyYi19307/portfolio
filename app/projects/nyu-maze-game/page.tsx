@@ -1,14 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
+import CaseShell from "@/app/components/CaseShell";
 
 export default function NYUMazeGamePage() {
   return (
-    <main className="max-w-4xl mx-auto p-8">
-      <Link href="/" className="text-sm underline">
-        ← Back to Projects
-      </Link>
-
-      <section className="mt-8 mb-12">
+    <CaseShell>
+      <section className="case-hero">
         <p className="text-sm uppercase tracking-wide text-gray-500 mb-2">
           First CS Project · Processing PDE
         </p>
@@ -59,7 +55,7 @@ export default function NYUMazeGamePage() {
         </video>
 
         <p className="text-sm text-gray-600 mt-2">
-          Gameplay demo from my first computer science project.
+          Gameplay demo from my first computer science project
         </p>
       </section>
 
@@ -174,6 +170,6 @@ export default function NYUMazeGamePage() {
           View Original Game Report →
         </a>
       </section>
-    </main>
+    </CaseShell>
   );
 }

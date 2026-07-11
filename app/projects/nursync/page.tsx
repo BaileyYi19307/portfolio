@@ -1,13 +1,9 @@
-import Link from "next/link";
+import CaseShell from "@/app/components/CaseShell";
 
 export default function NurSyncPage() {
   return (
-    <main className="max-w-4xl mx-auto p-8">
-      <Link href="/#projects" className="text-sm underline">
-        ← Back to Projects
-      </Link>
-
-      <section className="mt-8 mb-10">
+    <CaseShell>
+      <section className="case-hero">
         <p className="text-sm uppercase tracking-wide text-gray-500 mb-2">
           Full-Stack Peer-Support Platform
         </p>
@@ -88,6 +84,6 @@ export default function NurSyncPage() {
         <h2 className="text-2xl font-semibold mb-3">Technologies</h2>
         <p>JavaScript, Node.js, Express, MongoDB, HTML, CSS</p>
       </section>
-    </main>
+    </CaseShell>
   );
 }

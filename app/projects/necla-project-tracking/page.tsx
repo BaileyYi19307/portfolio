@@ -1,13 +1,9 @@
-import Link from "next/link";
+import CaseShell from "@/app/components/CaseShell";
 
 export default function NECLAProjectTrackingPage() {
   return (
-    <main className="max-w-4xl mx-auto p-8">
-      <Link href="/" className="text-sm underline">
-        ← Back to Projects
-      </Link>
-
-      <section className="mt-8 mb-12">
+    <CaseShell>
+      <section className="case-hero">
         <p className="text-sm uppercase tracking-wide text-gray-500 mb-2">
           Full-Stack Internal Operations Platform
         </p>
@@ -30,7 +26,7 @@ export default function NECLAProjectTrackingPage() {
         />
 
         <p className="text-sm text-gray-600 mt-2">
-          Current planning dashboard prototype used for stakeholder feedback.
+          Current planning dashboard prototype used for stakeholder feedback
         </p>
       </section>
 
@@ -149,7 +145,7 @@ Invoice Forecasting and Reporting`}
           />
 
           <p className="text-sm text-gray-600 mt-2">
-            Initial MVP used to validate the planning workflow.
+            Initial MVP used to validate the planning workflow
           </p>
         </div>
 
@@ -161,7 +157,7 @@ Invoice Forecasting and Reporting`}
           />
 
           <p className="text-sm text-gray-600 mt-2">
-            Later prototype used for faster iteration and feedback.
+            Later prototype used for faster iteration and feedback
           </p>
         </div>
       </section>
@@ -194,7 +190,7 @@ Invoice Forecasting and Reporting`}
 
         <p className="text-sm text-gray-600 mt-2">
           Create project workflow for entering project details, funding,
-          duration, department, lead researcher, and notes.
+          duration, department, lead researcher, and notes
         </p>
       </section>
 
@@ -234,7 +230,7 @@ Invoice Forecasting and Reporting`}
 
         <p className="text-sm text-gray-600 mt-2">
           Labor planning table with researchers as rows and project months as
-          columns.
+          columns
         </p>
       </section>
 
@@ -265,7 +261,7 @@ Invoice Forecasting and Reporting`}
 
         <p className="text-sm text-gray-600 mt-2">
           Equipment planning view, representing one incremental spend category
-          that feeds into labor budget calculations.
+          that feeds into labor budget calculations
         </p>
       </section>
 
@@ -297,7 +293,7 @@ Invoice Forecasting and Reporting`}
 
         <p className="text-sm text-gray-600 mt-2">
           Portfolio overview for managing externally funded projects across the
-          organization.
+          organization
         </p>
       </section>
 
@@ -331,7 +327,7 @@ Invoice Forecasting and Reporting`}
           Initial PostgreSQL schema used to validate the planning workflow. As
           the platform evolved through stakeholder feedback, the data model
           expanded to support additional planning stages, reporting, and
-          portfolio-level functionality.
+          portfolio-level functionality
         </p>
       </section>
 
@@ -409,6 +405,6 @@ Invoice Forecasting and Reporting`}
           Replit
         </p>
       </section>
-    </main>
+    </CaseShell>
   );
 }
