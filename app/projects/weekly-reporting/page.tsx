@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 function Figure({
   src,
@@ -26,9 +27,9 @@ function Figure({
 export default function WeeklyReportingPage() {
   return (
     <main className="max-w-4xl mx-auto p-8">
-      <a href="/" className="text-sm underline">
+      <Link href="/" className="text-sm underline">
         ← Back to Projects
-      </a>
+      </Link>
 
       <section className="mt-8 mb-10">
         <p className="text-sm uppercase tracking-wide text-gray-500 mb-2"></p>
@@ -388,7 +389,7 @@ export default function WeeklyReportingPage() {
         <p className="mb-4">
           Following deployment of the weekly reporting platform, leadership
           requested a more structured approval process that mirrors the
-          organization's management hierarchy.
+          organization&apos;s management hierarchy.
         </p>
 
         <p className="mb-4">
