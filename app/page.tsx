@@ -13,6 +13,7 @@ type Project = {
   href: string;
   image?: string;
   imageAlt?: string;
+  imageFit?: "cover" | "contain";
   placeholderTone?: "ocean" | "slate" | "amber" | "default";
   placeholderCode?: string;
   summary: string;
@@ -48,11 +49,12 @@ export default function Home() {
       title: "Fiber Sensing Visualization Platform",
       status: "Completed",
       href: "/projects/fiber-sensing-visualization",
-      image: "/fiber-sensing/interpolation-heatmap.png",
-      imageAlt: "Fiber sensing heatmap visualization",
+      image: "/fiber-sensing/room-localization.jpg",
+      imageAlt: "Room-scale fiber sensing localization visualization",
+      imageFit: "cover",
       summary:
-        "Browser-based platform that turns live fiber-optic sensing data into floor maps, heatmaps, and frequency visualizations for multi-user demos",
-      highlight: "Built 15+ interactive visualization modes",
+        "Replaced NEC's LabVIEW demos with a real-time web platform that turns high-volume distributed fiber sensing into room-scale visualizations for researchers and executives",
+      highlight: "Processed 10–20M sensing data points/sec across 230m of fiber",
       technologies: ["Python", "JavaScript", "Three.js", "RabbitMQ"],
     },
     {
@@ -61,6 +63,7 @@ export default function Home() {
       href: "/projects/weekly-reporting",
       image: "/weekly-reporting/weekly-submission-app.png",
       imageAlt: "Weekly reporting submission application screenshot",
+      imageFit: "contain",
       summary:
         "Power Apps and Power Automate system that standardizes weekly department reporting for NEC Laboratories America",
       highlight: "Standardized reporting across 5 NLA departments",
@@ -72,10 +75,23 @@ export default function Home() {
       href: "/projects/necla-project-tracking",
       image: "/necla-project-tracking/replit-project-dashboard.png",
       imageAlt: "NECLA project tracking dashboard screenshot",
+      imageFit: "contain",
       summary:
         "Full-stack MVP for planning externally funded research projects, labor, and incremental spend in one place",
       highlight: "Centralized project, funding, and labor planning",
       technologies: ["React", "TypeScript", "FastAPI", "PostgreSQL"],
+    },
+    {
+      title: "Bargaining Experiment",
+      status: "Completed",
+      href: "/projects/bargaining-experiment",
+      image: "/bargaining-experiment/interface-hero.svg",
+      imageAlt: "Bargaining experiment triangle interface concept",
+      imageFit: "contain",
+      summary:
+        "Interactive oTree experiment studying gender-based negotiation strategies with dynamic offers and real-time currency decay",
+      highlight: "Built under supervision of Prof. Andrzej Baranski",
+      technologies: ["Python", "JavaScript", "oTree", "Behavioral Economics"],
     },
     {
       title: "NurSync",
@@ -206,14 +222,22 @@ export default function Home() {
                 href={project.href}
                 className="project-card project-card-link"
               >
-                <div className="project-media">
+                <div
+                  className={`project-media${
+                    project.imageFit === "contain" ? " project-media-contain" : ""
+                  }`}
+                >
                   {project.image ? (
                     <Image
                       src={project.image}
                       alt={project.imageAlt ?? project.title}
                       fill
                       sizes="(max-width: 760px) 100vw, 50vw"
-                      className="project-media-img"
+                      className={`project-media-img${
+                        project.imageFit === "contain"
+                          ? " project-media-img-contain"
+                          : ""
+                      }`}
                     />
                   ) : (
                     <div

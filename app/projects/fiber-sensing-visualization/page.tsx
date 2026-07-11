@@ -18,9 +18,10 @@ export default function FiberSensingVisualizationPage() {
         </h1>
 
         <p className="text-lg">
-          A browser-based visualization platform for NEC&apos;s distributed
-          fiber-optic sensing research, built with Python, RabbitMQ/STOMP, UDP
-          streams, JavaScript, and Three.js.
+          A real-time web visualization platform that replaced a legacy LabVIEW
+          interface for NEC&apos;s distributed fiber-optic sensing research,
+          turning high-volume streaming measurements into interactive room-scale
+          views for researchers and executive leadership.
         </p>
       </section>
 
@@ -37,12 +38,17 @@ export default function FiberSensingVisualizationPage() {
         </p>
 
         <p className="mt-4">
-          I worked across the Python backend and JavaScript/Three.js frontend to
-          build interactive visualizations, map fiber measurements to physical
-          floor coordinates, develop signal-analysis workflows, and improve the
-          demo setup process. The platform transformed live, simulated, and
-          replayed sensing data into floor maps, waterfall plots, frequency
-          views, activity histograms, and spatial heatmaps.
+          I extended NEC&apos;s existing Python processing pipelines and
+          RabbitMQ messaging infrastructure to replace a legacy LabVIEW
+          interface with a browser-based platform. The system processed 10–20
+          million distributed fiber sensing data points per second and
+          transformed them into interactive visualizations that made complex
+          system behavior understandable to non-technical audiences and
+          executive leadership. I also developed a real-time spatial
+          localization pipeline that processed streaming measurements from 230
+          meters of distributed fiber, inferred activity locations through
+          statistical estimation, and projected them onto physical floor layouts
+          to enable live room-scale motion tracking.
         </p>
       </section>
 
@@ -448,6 +454,24 @@ Floor maps, FFT/PCA views, histograms, heatmaps`}
         <h2 className="text-2xl font-semibold mb-3">Results</h2>
 
         <ul className="list-disc pl-6 space-y-2">
+          <li>
+            Extended NEC&apos;s existing Python processing pipelines and
+            RabbitMQ messaging infrastructure to replace a legacy LabVIEW
+            interface with a real-time web visualization platform.
+          </li>
+          <li>
+            Processed 10–20 million distributed fiber sensing data points per
+            second and transformed them into interactive visualizations that
+            made complex system behavior understandable to non-technical
+            audiences and executive leadership.
+          </li>
+          <li>
+            Developed a real-time spatial localization pipeline that processed
+            streaming measurements from 230 meters of distributed fiber,
+            inferred activity locations through statistical estimation, and
+            projected them onto physical floor layouts to enable live room-scale
+            motion tracking.
+          </li>
           <li>
             Built a browser-based visualization platform for live, simulated,
             and replayed LS3300 fiber sensing data.

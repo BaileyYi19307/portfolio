@@ -625,9 +625,19 @@ a {
   flex-shrink: 0;
 }
 
+.project-media-contain {
+  background: #f1f5f9;
+  aspect-ratio: 2 / 1;
+}
+
 .project-media-img {
   object-fit: cover;
   object-position: top center;
+}
+
+.project-media-img-contain {
+  object-fit: contain;
+  object-position: center;
 }
 
 .project-media-placeholder {
