@@ -26,18 +26,21 @@ export default function Home() {
     {
       title: "Training for My First Half Marathon",
       image: "/interests/Fleet_feet.JPG",
+      layout: "split" as const,
       description:
         "I'm currently training for the Toronto Waterfront Half Marathon in October 2026. Along the way I've joined Fleet Feet Princeton's running community, signed up for their upcoming mile race, and started exploring local group runs around Princeton and Philadelphia. Running has become one of my favorite ways to clear my head. It's one of the few times during the day where I don't feel like I have to solve a problem - I just have to keep moving. It's also introduced me to an incredibly welcoming community. I've met runners of all experience levels simply by showing up to local group runs, from people training for their first 5K to someone who had completed 27 marathons. One runner told me, \"You just have to show up,\" and that has been my experience too. I enjoy hearing how different people train, what they've learned over the years, and the pieces of advice they pick up along the way",
     },
     {
       title: "Auditing Classes at Princeton",
       image: "/interests/princeton.png",
+      layout: "stack" as const,
       description:
         "While working full-time at NEC, I audited Princeton's Stochastic Systems and Probability course. More recently, I was invited to sit in on EGR 395: Venture Capital and Finance of Innovation, a course that explores how investors evaluate startups, manage risk, and fund innovation.",
     },
     {
       title: "Learning Blender",
       image: "/interests/blender-room.gif",
+      layout: "stack" as const,
       description:
         "Recently I’ve been teaching myself Blender through small projects, including an animated room environment and a 3D recreation of NEC’s fiber sensing hardware.",
     },
@@ -49,9 +52,10 @@ export default function Home() {
       title: "Fiber Sensing Visualization Platform",
       status: "Completed",
       href: "/projects/fiber-sensing-visualization",
-      image: "/fiber-sensing/room-localization.jpg",
-      imageAlt: "Room-scale fiber sensing localization visualization",
-      imageFit: "cover",
+      image: "/fiber-sensing/fiber-to-room-card.jpg",
+      imageAlt:
+        "Left: simplified fiber routing beneath the demo room. Right: early movement-tracking visualization projecting sensing activity onto the room layout.",
+      imageFit: "contain",
       summary:
         "Replaced NEC's LabVIEW demos with a real-time web platform that turns high-volume distributed fiber sensing into room-scale visualizations for researchers and executives",
       highlight: "Processed 10–20M sensing data points/sec across 230m of fiber",
@@ -61,7 +65,7 @@ export default function Home() {
       title: "Weekly Reporting Platform",
       status: "Deployed",
       href: "/projects/weekly-reporting",
-      image: "/weekly-reporting/weekly-submission-app.png",
+      image: "/weekly-reporting/weekly-submission-card.jpg",
       imageAlt: "Weekly reporting submission application screenshot",
       imageFit: "contain",
       summary:
@@ -73,7 +77,7 @@ export default function Home() {
       title: "NECLA Externally Funded Project Tracking Platform",
       status: "In Progress",
       href: "/projects/necla-project-tracking",
-      image: "/necla-project-tracking/replit-project-dashboard.png",
+      image: "/necla-project-tracking/dashboard-card.jpg",
       imageAlt: "NECLA project tracking dashboard screenshot",
       imageFit: "contain",
       summary:
@@ -85,7 +89,7 @@ export default function Home() {
       title: "Bargaining Experiment",
       status: "Completed",
       href: "/projects/bargaining-experiment",
-      image: "/bargaining-experiment/interface-hero.svg",
+      image: "/bargaining-experiment/interface-card.jpg",
       imageAlt: "Bargaining experiment triangle interface concept",
       imageFit: "contain",
       summary:
@@ -327,18 +331,27 @@ export default function Home() {
 
           <div className="interest-list">
             {interests.map((interest) => (
-              <article key={interest.title} className="interest-card">
+              <article
+                key={interest.title}
+                className={`interest-card${
+                  interest.layout === "split" ? " interest-card-split" : ""
+                }`}
+              >
                 <div className="interest-body">
-                  <h3 className="interest-title">{interest.title}</h3>
-                  <p>{interest.description}</p>
-                  <Image
-                    src={interest.image}
-                    alt={interest.title}
-                    width={1200}
-                    height={800}
-                    className="interest-image"
-                    unoptimized={interest.image.endsWith(".gif")}
-                  />
+                  <div className="interest-copy">
+                    <h3 className="interest-title">{interest.title}</h3>
+                    <p>{interest.description}</p>
+                  </div>
+                  <div className="interest-media">
+                    <Image
+                      src={interest.image}
+                      alt={interest.title}
+                      width={interest.layout === "split" ? 720 : 1200}
+                      height={interest.layout === "split" ? 1280 : 800}
+                      className="interest-image"
+                      unoptimized={interest.image.endsWith(".gif")}
+                    />
+                  </div>
                 </div>
               </article>
             ))}
