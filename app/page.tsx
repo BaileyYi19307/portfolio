@@ -1,10 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-function stripTrailingPeriod(text: string) {
-  return text.replace(/\.\s*$/, "");
-}
-
 function statusClass(status: string) {
   if (status === "Deployed") return "status-badge status-deployed";
   if (status === "Completed") return "status-badge status-completed";
@@ -14,16 +10,14 @@ function statusClass(status: string) {
 type Project = {
   title: string;
   status: string;
-  href?: string;
+  href: string;
   image?: string;
   imageAlt?: string;
   placeholderTone?: "ocean" | "slate" | "amber" | "default";
   placeholderCode?: string;
-  problem: string;
-  solution: string;
-  impact: string[];
+  summary: string;
+  highlight: string;
   technologies: string[];
-  lessons?: string[];
 };
 
 export default function Home() {
@@ -56,32 +50,10 @@ export default function Home() {
       href: "/projects/fiber-sensing-visualization",
       image: "/fiber-sensing/interpolation-heatmap.png",
       imageAlt: "Fiber sensing heatmap visualization",
-      problem:
-        "NEC's LS3300 distributed fiber-optic sensing system could detect disturbances along a fiber cable embedded beneath a room floor, but demonstrations were primarily conducted through LabVIEW-based tools. The lab president wanted a browser-based platform that could support synchronized multi-user demonstrations while making it easier to visualize movement, vibration, frequency behavior, and spatial localization from live sensing data.",
-      solution:
-        "Built and extended a browser-based visualization platform using Python, RabbitMQ/STOMP, UDP data streams, JavaScript, and Three.js. Leveraging existing sensing and streaming infrastructure, I developed interactive visualizations that transformed live and replayed LS3300 data into floor maps, heatmaps, waterfall plots, activity histograms, and frequency-analysis views. I also implemented localization workflows that mapped fiber measurements to physical room coordinates and refactored backend processing logic into reusable Python pipelines.",
-      impact: [
-        "Built 15+ interactive visualization modes spanning signal, frequency, and spatial analysis",
-        "Mapped one-dimensional fiber measurements to 2-D floor coordinates using segment geometry and fiber-index lookup logic",
-        "Created real-time floor-layout visualizations that displayed footsteps and vibration activity as spatial heatmaps, histograms, and activity maps",
-        "Implemented signal-processing visualizations including FFT frequency-location views, z-score calibration, and baseline-tracking workflows",
-        "Experimented with localization and activity-detection methods using rolling, EWMA, and median/MAD baselines, persistent histograms, and decay-based activity maps",
-        "Refactored backend FloorWriter pipelines to move localization and histogram generation into reusable Python processing components",
-        "Added simulated and playback data support, allowing demonstrations and development without requiring live sensing hardware",
-        "Automated multi-process startup and testing workflows for faster development and demonstrations",
-        "Helped researchers explain fiber-sensing behavior by directly connecting raw signal changes to physical movement within a room",
-      ],
-      technologies: [
-        "Python",
-        "JavaScript",
-        "Three.js",
-        "RabbitMQ",
-        "STOMP",
-        "UDP",
-        "Signal Processing",
-        "FFT",
-        "Data Visualization",
-      ],
+      summary:
+        "Browser-based platform that turns live fiber-optic sensing data into floor maps, heatmaps, and frequency visualizations for multi-user demos",
+      highlight: "Built 15+ interactive visualization modes",
+      technologies: ["Python", "JavaScript", "Three.js", "RabbitMQ"],
     },
     {
       title: "Weekly Reporting Platform",
@@ -89,28 +61,10 @@ export default function Home() {
       href: "/projects/weekly-reporting",
       image: "/weekly-reporting/weekly-submission-app.png",
       imageAlt: "Weekly reporting submission application screenshot",
-      problem:
-        "NEC Laboratories America’s weekly department reporting process was previously manual and spreadsheet/email-based. Department heads submitted updates in inconsistent formats, operations staff had to track missing submissions manually, and leadership needed a repeatable way to review and select topics for Japan-facing executive reporting.",
-      solution:
-        "Built and deployed a Power Apps and Power Automate platform that standardizes department-head submissions, stores reporting data in SharePoint Lists, sends automated reminders, tracks submission status, supports executive review, and generates report-ready topic summaries. The system also includes an email-based topic selection workflow where the laboratory president can select topics by replying with numbered choices.",
-      impact: [
-        "Standardized weekly reporting across 5 NLA departments",
-        "Supported 17+ production submissions through structured SharePoint inputs",
-        "Replaced a fully manual spreadsheet/email workflow with automated submission tracking, reminders, review queues, and report-generation flows",
-        "Supported president-selected weekly topics for Japan-facing executive reporting",
-        "Automated Monday/Wednesday reminders, missing-submission tracking, topic selection, backlog handling, and report distribution",
-        "Preserved edit history and reporting metadata through review queues, editable reporting copies, and version-history design",
-        "Packaged SharePoint lists, Power Automate flows, and Power Apps components for NEC Europe and Japan teams adapting the workflow in their own tenants",
-        "Created a reusable reporting architecture that could extend from weekly updates into monthly reviews and quarterly KPI collection",
-      ],
-      technologies: [
-        "Power Apps",
-        "Power Automate",
-        "SharePoint Lists",
-        "Office 365 Users",
-        "Outlook",
-        "ExcelScript",
-      ],
+      summary:
+        "Power Apps and Power Automate system that standardizes weekly department reporting for NEC Laboratories America",
+      highlight: "Standardized reporting across 5 NLA departments",
+      technologies: ["Power Apps", "Power Automate", "SharePoint Lists"],
     },
     {
       title: "NECLA Externally Funded Project Tracking Platform",
@@ -118,112 +72,43 @@ export default function Home() {
       href: "/projects/necla-project-tracking",
       image: "/necla-project-tracking/replit-project-dashboard.png",
       imageAlt: "NECLA project tracking dashboard screenshot",
-      problem:
-        "Externally funded research project planning at NEC Laboratories America was spread across proposal folders, pricing files, bills of materials, invoice reports, and tracking spreadsheets. This made it difficult to understand funding availability, plan labor, track incremental spend, and answer project-level or portfolio-level financial questions without manually reconciling several files.",
-      solution:
-        "Worked with Rob from Operations to design and build a full-stack MVP for externally funded project planning using React, TypeScript, FastAPI, PostgreSQL, SQLAlchemy, and TanStack Table. The platform centralizes project setup, funding details, labor planning, equipment, travel, shipping, and the foundation for planned-vs-actual tracking. I also used an initial MVP and later Replit prototyping to validate the workflow and iterate quickly as requirements became clearer.",
-      impact: [
-        "Mapped the externally funded project lifecycle from proposal development through planning, labor allocation, invoicing, and reporting",
-        "Designed an initial PostgreSQL schema separating planned and actual labor and incremental costs to support future variance analysis",
-        "Built project creation and portfolio views for managing externally funded projects in one place",
-        "Developed editable monthly planning tables for researcher labor, equipment, travel, shipping, and cost-share inputs",
-        "Created funding-based labor planning logic where incremental spend reduces the remaining budget available for researcher hours",
-        "Persisted project and planning data through FastAPI, SQLAlchemy, and PostgreSQL backend endpoints",
-        "Used stakeholder feedback to evolve the MVP from a basic dashboard into a more structured planning platform",
-        "Laid the foundation for planned-vs-actual tracking, invoice forecasting, and portfolio-level reporting",
-      ],
-      technologies: [
-        "React",
-        "TypeScript",
-        "FastAPI",
-        "PostgreSQL",
-        "SQLAlchemy",
-        "TanStack Table",
-        "Replit",
-      ],
+      summary:
+        "Full-stack MVP for planning externally funded research projects, labor, and incremental spend in one place",
+      highlight: "Centralized project, funding, and labor planning",
+      technologies: ["React", "TypeScript", "FastAPI", "PostgreSQL"],
     },
     {
       title: "NurSync",
       status: "Completed",
+      href: "/projects/nursync",
       placeholderTone: "slate",
       placeholderCode: "demo · ranked 1st / 15",
-      problem:
-        "Nursing students lacked a dedicated space to anonymously ask questions, share experiences, and connect with peers without relying on fragmented messaging platforms or revealing their identities.",
-      solution:
-        "Built a full-stack peer-support platform featuring anonymous discussion, authentication, moderation workflows, search, and threaded conversations. Worked closely with a multidisciplinary team to iteratively refine requirements before delivering a live demonstration.",
-      impact: [
-        "Ranked 1st out of 15 software engineering teams, earning a summer research opportunity with Prof. Mohamad Kassab",
-        "Implemented secure authentication, anonymous posting, comments, search/filtering, and administrator approval workflows",
-        "Led development of the discussion and authentication systems while collaborating on feature design and implementation",
-        "Delivered a live demonstration selected for the course showcase",
-      ],
-      technologies: [
-        "JavaScript",
-        "Node.js",
-        "Express",
-        "MongoDB",
-        "HTML",
-        "CSS",
-      ],
-      lessons: [
-        "My first experience building a full-stack web application from scratch",
-        "Learned how authentication, authorization, and database-backed web applications fit together",
-        "Gained experience translating user requirements into iterative software features while working on a collaborative development team",
-        "Reinforced the importance of designing software around user needs rather than just implementing technical functionality",
-      ],
+      summary:
+        "Full-stack peer-support platform for nursing students with anonymous discussion, authentication, and moderation",
+      highlight: "Ranked 1st out of 15 software engineering teams",
+      technologies: ["JavaScript", "Node.js", "Express", "MongoDB"],
     },
     {
       title: "Tax-Man Finder",
       status: "In Progress",
+      href: "/projects/tax-man-finder",
       placeholderTone: "ocean",
       placeholderCode: "full-stack · websockets",
-      problem:
-        "Finding and communicating with tax professionals can be fragmented, requiring users to search independently, exchange emails, and coordinate appointments across multiple platforms.",
-      solution:
-        "Built a full-stack web application that connects users with tax professionals through service listings, direct messaging, inquiry management, and appointment booking workflows. The platform supports account creation, authentication, real-time communication, and booking management within a single application.",
-      impact: [
-        "Implemented user authentication and authorization",
-        "Built real-time messaging using WebSockets",
-        "Created inquiry workflows connecting clients and tax professionals",
-        "Developed appointment booking and status tracking features",
-        "Designed REST APIs and database models supporting end-to-end user interactions",
-      ],
-      technologies: [
-        "Django",
-        "Django REST Framework",
-        "React",
-        "PostgreSQL",
-        "WebSockets",
-        "JWT Authentication",
-        "Docker",
-      ],
+      summary:
+        "Full-stack web app connecting users with tax professionals through messaging, inquiries, and appointment booking",
+      highlight: "Built real-time messaging using WebSockets",
+      technologies: ["Django", "React", "PostgreSQL", "WebSockets"],
     },
     {
       title: "OCR Statement Extraction",
       status: "In Progress",
+      href: "/projects/ocr-statement-extraction",
       placeholderTone: "amber",
       placeholderCode: "pipeline · in progress",
-      problem:
-        "Bank and credit card statements often store transaction data in visually structured PDF layouts rather than clean tables. Standard text extraction loses row and column positioning, making it difficult to reliably identify transaction dates, descriptions, amounts, and balances.",
-      solution:
-        "Building a Python OCR pipeline that extracts word-level text and coordinates from PDF statements, groups words into visual lines, scores candidate transaction rows using regex and layout heuristics, and prepares structured transaction data for manual review and correction.",
-      impact: [
-        "Processes sample bank and credit card statements using OCR",
-        "Groups OCR words into transaction-like rows using y-coordinate proximity",
-        "Uses regex patterns to identify dates, amounts, and merchant text",
-        "Applies transaction scoring logic to distinguish statement metadata from likely transaction rows",
-        "Designs column-bound inference to parse dates, descriptions, debit/credit amounts, and balances",
-        "Develops an editable review workflow where user corrections improve future parsing and categorization",
-      ],
-      technologies: [
-        "Python",
-        "Pandas",
-        "pytesseract",
-        "pdf2image",
-        "Regex",
-        "OCR",
-        "Layout Parsing",
-      ],
+      summary:
+        "Python OCR pipeline that extracts structured transaction data from visually laid-out bank and credit card PDFs",
+      highlight: "Parses statement transactions with layout-aware OCR",
+      technologies: ["Python", "Pandas", "pytesseract", "OCR"],
     },
   ];
 
@@ -281,49 +166,24 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="about" className="page-section" aria-labelledby="about-heading">
+        <section id="about" className="page-section page-section-tight" aria-labelledby="about-heading">
           <p className="section-eyebrow">About</p>
           <h2 id="about-heading" className="section-title">
             About Me
           </h2>
 
-          <div className="about-panel">
+          <div className="about-panel about-panel-compact">
             <div className="about-copy">
               <p>Hi there, I&apos;m Bailey!</p>
-
               <p>
                 I&apos;m an incoming Master&apos;s student in Data Science at
                 UPenn and recently graduated from NYU, where I studied Computer
-                Science and Economics.
-              </p>
-
-              <p>
-                Right now, I work at NEC Laboratories America. I originally
-                started out helping build visualizations for a fiber-optic
-                sensing system, but over time my work shifted toward building
-                internal applications and automating processes for our research
-                and operations teams.
-              </p>
-
-              <p>
-                One thing I&apos;ve noticed across most of my projects is that I
-                keep getting pulled toward data. Not necessarily collecting it,
-                but figuring out what it&apos;s actually telling us and how much
-                confidence we should have in the conclusions we draw from it.
-                That&apos;s a big part of what pushed me toward data science.
-              </p>
-
-              <p>
-                This website is mostly a collection of projects I&apos;ve worked
-                on, things I&apos;m currently learning, and a few rabbit holes
-                I&apos;ve gone down along the way.
-              </p>
-
-              <p>
-                Outside of work, you&apos;ll usually find me running, auditing
-                classes, or trying something new. Recently that&apos;s included
-                learning Blender, rock climbing, Pilates, visiting local farmers
-                markets, and even taking a mozzarella cheese-making class.
+                Science and Economics. Right now, I work at NEC Laboratories
+                America building internal applications and automating processes
+                for research and operations teams. This website is a collection
+                of projects I&apos;ve worked on, things I&apos;m currently
+                learning, and a few rabbit holes I&apos;ve gone down along the
+                way.
               </p>
             </div>
           </div>
@@ -339,16 +199,20 @@ export default function Home() {
             Projects
           </h2>
 
-          <div className="project-list">
+          <div className="project-gallery">
             {projects.map((project) => (
-              <article key={project.title} className="project-card">
+              <Link
+                key={project.title}
+                href={project.href}
+                className="project-card project-card-link"
+              >
                 <div className="project-media">
                   {project.image ? (
                     <Image
                       src={project.image}
                       alt={project.imageAlt ?? project.title}
                       fill
-                      sizes="(max-width: 960px) 100vw, 360px"
+                      sizes="(max-width: 760px) 100vw, 50vw"
                       className="project-media-img"
                     />
                   ) : (
@@ -368,73 +232,34 @@ export default function Home() {
 
                 <div className="project-body">
                   <div className="project-header">
-                    <h3 className="project-title">
-                      {project.href ? (
-                        <Link href={project.href}>{project.title}</Link>
-                      ) : (
-                        project.title
-                      )}
-                    </h3>
-                    {project.status && (
-                      <span className={statusClass(project.status)}>
-                        {project.status}
+                    <h3 className="project-title">{project.title}</h3>
+                    <span className={statusClass(project.status)}>
+                      {project.status}
+                    </span>
+                  </div>
+
+                  <p className="project-summary">{project.summary}</p>
+
+                  <p className="project-highlight">{project.highlight}</p>
+
+                  <div className="tech-tags">
+                    {project.technologies.map((tech) => (
+                      <span key={tech} className="tech-tag">
+                        {tech}
                       </span>
-                    )}
+                    ))}
                   </div>
 
-                  <div className="project-block">
-                    <h4 className="project-block-label">Problem</h4>
-                    <p>{project.problem}</p>
+                  <div className="project-footer">
+                    <span className="text-link">
+                      Learn more
+                      <span className="text-link-arrow" aria-hidden="true">
+                        →
+                      </span>
+                    </span>
                   </div>
-
-                  <div className="project-block">
-                    <h4 className="project-block-label">Solution</h4>
-                    <p>{project.solution}</p>
-                  </div>
-
-                  <div className="project-block">
-                    <h4 className="project-block-label">Impact / Features</h4>
-                    <ul className="project-impact">
-                      {project.impact.map((item) => (
-                        <li key={item}>{stripTrailingPeriod(item)}</li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="project-block">
-                    <h4 className="project-block-label">Technologies</h4>
-                    <div className="tech-tags">
-                      {project.technologies.map((tech) => (
-                        <span key={tech} className="tech-tag">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {project.lessons && (
-                    <div className="project-block">
-                      <h4 className="project-block-label">Lessons</h4>
-                      <ul className="project-impact">
-                        {project.lessons.map((item) => (
-                          <li key={item}>{stripTrailingPeriod(item)}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {project.href && (
-                    <div className="project-footer">
-                      <Link href={project.href} className="text-link">
-                        Read full case study
-                        <span className="text-link-arrow" aria-hidden="true">
-                          →
-                        </span>
-                      </Link>
-                    </div>
-                  )}
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </section>

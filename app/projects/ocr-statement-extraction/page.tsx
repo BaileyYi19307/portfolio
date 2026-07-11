@@ -1,7 +1,13 @@
+import Link from "next/link";
+
 export default function OCRStatementExtractionPage() {
   return (
     <main className="max-w-4xl mx-auto p-8">
-      <h1 className="text-4xl font-bold mb-2">
+      <Link href="/#projects" className="text-sm underline">
+        ← Back to Projects
+      </Link>
+
+      <h1 className="text-4xl font-bold mb-2 mt-8">
         OCR Statement Extraction
       </h1>
 
