@@ -466,12 +466,28 @@ a {
   border: 1px solid var(--border);
   background: #0b1220;
   color: #dbe7ff;
-  min-height: 180px;
+  min-height: 220px;
   display: flex;
   align-items: flex-end;
   padding: 20px;
   position: relative;
   overflow: hidden;
+}
+
+.callout-visual-image {
+  display: block;
+  padding: 0;
+  min-height: 240px;
+  background: #000;
+}
+
+.callout-visual-image:hover {
+  opacity: 0.96;
+}
+
+.callout-visual-img {
+  object-fit: contain;
+  object-position: center;
 }
 
 .callout-visual::before {
@@ -491,6 +507,10 @@ a {
       rgba(255, 255, 255, 0.04) 0 1px,
       transparent 1px 28px
     );
+}
+
+.callout-visual-image::before {
+  display: none;
 }
 
 .callout-visual span {

@@ -109,27 +109,27 @@ export default function FiberSensingVisualizationPage() {
         <ul className="list-disc pl-6 space-y-2">
           <li>
             Raw fiber signals were high-volume and difficult to interpret
-            directly.
+            directly
           </li>
           <li>
             Fiber measurements existed in one-dimensional index space rather
-            than physical room coordinates.
+            than physical room coordinates
           </li>
           <li>
             The demo needed to connect raw sensing activity to real-world
-            movement in the room.
+            movement in the room
           </li>
           <li>
             Noise and baseline drift made simple thresholding and color scaling
-            unreliable.
+            unreliable
           </li>
           <li>
             Live demonstrations required coordinating UDP data streams, backend
-            processing, RabbitMQ/STOMP messaging, and browser visualizations.
+            processing, RabbitMQ/STOMP messaging, and browser visualizations
           </li>
           <li>
             Experimental floor-localization logic needed to be separated into
-            reusable frontend and backend workflows.
+            reusable frontend and backend workflows
           </li>
         </ul>
       </section>
@@ -453,56 +453,56 @@ Floor maps, FFT/PCA views, histograms, heatmaps`}
           <li>
             Extended NEC&apos;s existing Python processing pipelines and
             RabbitMQ messaging infrastructure to replace a legacy LabVIEW
-            interface with a real-time web visualization platform.
+            interface with a real-time web visualization platform
           </li>
           <li>
             Processed 10–20 million distributed fiber sensing data points per
             second and transformed them into interactive visualizations that
             made complex system behavior understandable to non-technical
-            audiences and executive leadership.
+            audiences and executive leadership
           </li>
           <li>
             Developed a real-time spatial localization pipeline that processed
             streaming measurements from 230 meters of distributed fiber,
             inferred activity locations through statistical estimation, and
             projected them onto physical floor layouts to enable live room-scale
-            motion tracking.
+            motion tracking
           </li>
           <li>
             Built a browser-based visualization platform for live, simulated,
-            and replayed LS3300 fiber sensing data.
+            and replayed LS3300 fiber sensing data
           </li>
           <li>
             Created 15+ interactive visualization modes across signal,
-            frequency, spatial, and demo storytelling views.
+            frequency, spatial, and demo storytelling views
           </li>
           <li>
             Transformed 20 kHz multi-channel sensing streams into real-time
             floor maps, FFT/PCA views, activity histograms, and spatial
-            heatmaps.
+            heatmaps
           </li>
           <li>
             Mapped one-dimensional fiber measurements to two-dimensional floor
-            coordinates for spatial activity visualization.
+            coordinates for spatial activity visualization
           </li>
           <li>
             Built floor-layout views that connected raw signal changes to
-            visible movement in the room.
+            visible movement in the room
           </li>
           <li>
             Implemented baseline calibration, z-score coloring, persistent
-            histograms, and heatmap-style localization experiments.
+            histograms, and heatmap-style localization experiments
           </li>
           <li>
             Refactored backend FloorWriter logic to separate legacy streaming
-            behavior from newer localization workflows.
+            behavior from newer localization workflows
           </li>
           <li>
             Added simulated and playback data support for development and
-            demonstrations without live hardware.
+            demonstrations without live hardware
           </li>
           <li>
-            Automated multi-process demo startup with tmux for faster testing.
+            Automated multi-process demo startup with tmux for faster testing
           </li>
         </ul>
       </section>

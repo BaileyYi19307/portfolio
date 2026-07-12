@@ -20,6 +20,20 @@ export default function NYUMazeGamePage() {
       </section>
 
       <section className="mb-12">
+        <Image
+          src="/nyu-maze-game/welcome-screen-full.jpg"
+          alt="NYU maze game welcome screen with flashlight preview"
+          width={1226}
+          height={1280}
+          className="w-full rounded-lg border bg-black"
+        />
+        <p className="text-sm text-gray-600 mt-2">
+          Welcome screen from the Processing maze game, including the flashlight
+          preview of the library floor
+        </p>
+      </section>
+
+      <section className="mb-12">
         <h2 className="text-2xl font-semibold mb-3">Overview</h2>
 
         <p>

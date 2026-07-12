@@ -66,24 +66,24 @@ export default function OCRStatementExtractionPage() {
 
         <ul className="list-disc pl-6 space-y-2">
           <li>
-            Grouping OCR words into the correct transaction rows.
+            Grouping OCR words into the correct transaction rows
           </li>
           <li>
             Identifying transaction table regions across different
-            statement formats.
+            statement formats
           </li>
           <li>
-            Distinguishing transaction rows from statement metadata.
+            Distinguishing transaction rows from statement metadata
           </li>
           <li>
-            Inferring column boundaries using recurring word positions.
+            Inferring column boundaries using recurring word positions
           </li>
           <li>
-            Supporting both bank statements and credit card statements.
+            Supporting both bank statements and credit card statements
           </li>
           <li>
             Avoiding assumptions such as every transaction line ending
-            with an amount.
+            with an amount
           </li>
         </ul>
       </section>
@@ -95,24 +95,24 @@ export default function OCRStatementExtractionPage() {
 
         <ol className="list-decimal pl-6 space-y-2">
           <li>
-            Extract words and coordinates using OCR.
+            Extract words and coordinates using OCR
           </li>
           <li>
-            Group nearby words into visual lines.
+            Group nearby words into visual lines
           </li>
           <li>
             Score lines based on dates, amounts, and transaction-like
-            text.
+            text
           </li>
           <li>
-            Detect likely transaction table headers.
+            Detect likely transaction table headers
           </li>
           <li>
             Infer column boundaries from recurring x-coordinate
-            positions.
+            positions
           </li>
           <li>
-            Parse structured transaction fields.
+            Parse structured transaction fields
           </li>
         </ol>
       </section>
@@ -124,25 +124,25 @@ export default function OCRStatementExtractionPage() {
 
         <ul className="list-disc pl-6 space-y-2">
           <li>
-            Processed multiple sample financial statements.
+            Processed multiple sample financial statements
           </li>
           <li>
-            Built OCR extraction using pytesseract and pdf2image.
+            Built OCR extraction using pytesseract and pdf2image
           </li>
           <li>
             Implemented visual line grouping using coordinate
-            proximity.
+            proximity
           </li>
           <li>
             Developed regex patterns for dates, amounts, and merchant
-            text.
+            text
           </li>
           <li>
-            Built transaction row scoring logic.
+            Built transaction row scoring logic
           </li>
           <li>
             Started designing column-bound inference for transaction
-            parsing.
+            parsing
           </li>
         </ul>
       </section>
@@ -153,18 +153,18 @@ export default function OCRStatementExtractionPage() {
         </h2>
 
         <ol className="list-decimal pl-6 space-y-2">
-          <li>User uploads a statement PDF.</li>
-          <li>Backend extracts text and layout information.</li>
-          <li>Parser identifies transaction rows.</li>
-          <li>Structured transaction data is generated.</li>
+          <li>User uploads a statement PDF</li>
+          <li>Backend extracts text and layout information</li>
+          <li>Parser identifies transaction rows</li>
+          <li>Structured transaction data is generated</li>
           <li>
-            User reviews results in an editable transaction table.
+            User reviews results in an editable transaction table
           </li>
           <li>
-            User corrects extraction or categorization errors.
+            User corrects extraction or categorization errors
           </li>
           <li>
-            Cleaned transactions are exported as CSV.
+            Cleaned transactions are exported as CSV
           </li>
         </ol>
       </section>
@@ -176,19 +176,19 @@ export default function OCRStatementExtractionPage() {
 
         <ul className="list-disc pl-6 space-y-2">
           <li>
-            Merchant categorization and expense classification.
+            Merchant categorization and expense classification
           </li>
           <li>
-            Unknown transaction prioritization.
+            Unknown transaction prioritization
           </li>
           <li>
-            Human-in-the-loop correction workflows.
+            Human-in-the-loop correction workflows
           </li>
           <li>
-            Learning from user corrections over time.
+            Learning from user corrections over time
           </li>
           <li>
-            Export to accounting-friendly formats.
+            Export to accounting-friendly formats
           </li>
         </ul>
       </section>

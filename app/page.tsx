@@ -104,8 +104,7 @@ export default function Home() {
     {
       title: "NurSync",
       status: "Completed",
-      available: true,
-      href: "/projects/nursync",
+      available: false,
       placeholderTone: "slate",
       placeholderCode: "demo · ranked 1st / 15",
       summary:
@@ -345,9 +344,15 @@ export default function Home() {
                 </span>
               </Link>
             </div>
-            <div className="callout-visual">
-              <span>first build · Processing PDE maze game</span>
-            </div>
+            <Link href="/projects/nyu-maze-game" className="callout-visual callout-visual-image">
+              <Image
+                src="/nyu-maze-game/welcome-screen.jpg"
+                alt="NYU maze game welcome screen in Processing"
+                fill
+                sizes="(max-width: 800px) 100vw, 40vw"
+                className="callout-visual-img"
+              />
+            </Link>
           </div>
         </section>
 

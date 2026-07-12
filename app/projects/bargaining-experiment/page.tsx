@@ -93,28 +93,28 @@ export default function BargainingExperimentPage() {
         <ul className="list-disc pl-6 space-y-2">
           <li>
             Designed and implemented the interactive bargaining interface where
-            participants select allocations on a triangular payoff lattice.
+            participants select allocations on a triangular payoff lattice
           </li>
           <li>
             Built real-time synchronization for offers, agreement state, timers,
             and payoff updates across three concurrent participants using
-            oTree&apos;s live methods.
+            oTree&apos;s live methods
           </li>
           <li>
             Integrated gender-based participant icons so group composition was
-            visible during negotiation rounds.
+            visible during negotiation rounds
           </li>
           <li>
             Implemented real-time currency decay and dynamic offer mechanics so
-            delayed agreements reduced the value of the surplus.
+            delayed agreements reduced the value of the surplus
           </li>
           <li>
             Developed the compulsory-offer treatment flow, tutorial sequence,
-            pre-experiment modules, and end-of-round questionnaire.
+            pre-experiment modules, and end-of-round questionnaire
           </li>
           <li>
             Logged structured experimental events—including offers, agreement
-            membership, timestamps, and payoffs—for research analysis.
+            membership, timestamps, and payoffs—for research analysis
           </li>
         </ul>
       </section>
@@ -131,21 +131,21 @@ export default function BargainingExperimentPage() {
         <ul className="list-disc pl-6 space-y-2 mb-6">
           <li>
             <strong>Tutorial:</strong> Walks participants through the interface
-            before any money is at stake.
+            before any money is at stake
           </li>
           <li>
             <strong>PreExperiment:</strong> Captures gender selection and
-            related pre-tasks such as multiple price list choices.
+            related pre-tasks such as multiple price list choices
           </li>
           <li>
             <strong>Main_Experiment:</strong> Runs the multi-round bargaining
             game with optional compulsory-offer treatment, live offer
             synchronization, agreement ratification timers, and payoff
-            calculation.
+            calculation
           </li>
           <li>
             <strong>ExperimentEnd / Questionnaire:</strong> Closes the session
-            and collects post-experiment responses.
+            and collects post-experiment responses
           </li>
         </ul>
 

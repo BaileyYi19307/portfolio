@@ -63,23 +63,23 @@ export default function NECLAProjectTrackingPage() {
         <ul className="list-disc pl-6 space-y-2">
           <li>
             Project summary, pricing, labor, invoice, and actual cost data lived
-            in separate files.
+            in separate files
           </li>
           <li>
             Reporting often required manually copying and reconciling values
-            across spreadsheets.
+            across spreadsheets
           </li>
           <li>
             Labor planning depended on upstream calculations like total funding,
-            incremental spend, and remaining net funding.
+            incremental spend, and remaining net funding
           </li>
           <li>
             Planned costs and actual costs were tracked separately, making it
-            harder to compare them side by side.
+            harder to compare them side by side
           </li>
           <li>
             Ad hoc leadership questions required rebuilding custom views from
-            manually maintained tracking sheets.
+            manually maintained tracking sheets
           </li>
         </ul>
       </section>
@@ -210,13 +210,13 @@ Invoice Forecasting and Reporting`}
         </p>
 
         <ul className="list-disc pl-6 space-y-2">
-          <li>Calculate total incremental spend.</li>
-          <li>Derive remaining funding available for labor.</li>
-          <li>Convert labor budget into available researcher hours.</li>
-          <li>Distribute planned hours across researchers and project months.</li>
+          <li>Calculate total incremental spend</li>
+          <li>Derive remaining funding available for labor</li>
+          <li>Convert labor budget into available researcher hours</li>
+          <li>Distribute planned hours across researchers and project months</li>
           <li>
             Show whether the current plan is under or over the available labor
-            budget.
+            budget
           </li>
         </ul>
       </section>
@@ -360,15 +360,15 @@ Invoice Forecasting and Reporting`}
         </p>
 
         <ul className="list-disc pl-6 space-y-2">
-          <li>Project creation and portfolio view.</li>
-          <li>Project summary management.</li>
-          <li>Researcher assignment to projects.</li>
-          <li>Editable monthly labor planning tables.</li>
-          <li>Persistent researcher-hour planning data.</li>
-          <li>Funding-based labor budget calculations.</li>
-          <li>Equipment, travel, and shipping planning sections.</li>
-          <li>Foundation for planned vs. actual tracking.</li>
-          <li>Foundation for invoice forecasting and project reporting.</li>
+          <li>Project creation and portfolio view</li>
+          <li>Project summary management</li>
+          <li>Researcher assignment to projects</li>
+          <li>Editable monthly labor planning tables</li>
+          <li>Persistent researcher-hour planning data</li>
+          <li>Funding-based labor budget calculations</li>
+          <li>Equipment, travel, and shipping planning sections</li>
+          <li>Foundation for planned vs. actual tracking</li>
+          <li>Foundation for invoice forecasting and project reporting</li>
         </ul>
       </section>
 

@@ -69,18 +69,18 @@ export default function WeeklyReportingPage() {
 
         <ul className="list-disc pl-6 space-y-2">
           <li>
-            Reporting information was spread across multiple spreadsheets.
+            Reporting information was spread across multiple spreadsheets
           </li>
-          <li>Departments submitted updates in inconsistent formats.</li>
-          <li>Submission tracking was handled manually.</li>
-          <li>Reminder emails required manual coordination.</li>
+          <li>Departments submitted updates in inconsistent formats</li>
+          <li>Submission tracking was handled manually</li>
+          <li>Reminder emails required manual coordination</li>
           <li>
             Topic selection for leadership review involved back-and-forth email
-            communication.
+            communication
           </li>
           <li>
             There was no centralized review queue for editing, tracking, or
-            preserving report history.
+            preserving report history
           </li>
         </ul>
       </section>
@@ -274,21 +274,21 @@ export default function WeeklyReportingPage() {
         <h2 className="text-2xl font-semibold mb-3">Results</h2>
 
         <ul className="list-disc pl-6 space-y-2">
-          <li>Deployed and actively used by 5 departments.</li>
-          <li>Collected 17+ production submissions.</li>
+          <li>Deployed and actively used by 5 departments</li>
+          <li>Collected 17+ production submissions</li>
           <li>
             Replaced spreadsheet-based weekly reporting with a centralized
-            application.
+            application
           </li>
-          <li>Standardized reporting formats across departments.</li>
+          <li>Standardized reporting formats across departments</li>
           <li>
             Automated reminder emails, submission tracking, topic selection, and
-            report generation.
+            report generation
           </li>
           <li>
-            Supported executive topic selection by the laboratory president.
+            Supported executive topic selection by the laboratory president
           </li>
-          <li>Demoed and shared with NEC stakeholders in Japan and Europe.</li>
+          <li>Demoed and shared with NEC stakeholders in Japan and Europe</li>
         </ul>
       </section>
 
