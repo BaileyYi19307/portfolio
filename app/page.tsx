@@ -26,8 +26,25 @@ export default function Home() {
   const interests = [
     {
       title: "Training for My First Half Marathon",
-      image: "/interests/Fleet_feet.JPG",
       layout: "split" as const,
+      collage: [
+        {
+          src: "/interests/running/stadium.jpg",
+          alt: "Fleet Feet running group posing together at Princeton Stadium",
+        },
+        {
+          src: "/interests/running/medal.jpg",
+          alt: "Holding a Revolutionary Run America 250 finisher medal",
+        },
+        {
+          src: "/interests/running/rest.jpg",
+          alt: "Runner resting on the turf after a group workout",
+        },
+        {
+          src: "/interests/running/track.jpg",
+          alt: "Runners on a track holding numbered sticks in a circle",
+        },
+      ],
       description:
         "I'm currently training for the Toronto Waterfront Half Marathon in October 2026. Along the way I've joined Fleet Feet Princeton's running community, signed up for their upcoming mile race, and started exploring local group runs around Princeton and Philadelphia. Running has become one of my favorite ways to clear my head. It's one of the few times during the day where I don't feel like I have to solve a problem - I just have to keep moving. It's also introduced me to an incredibly welcoming community. I've met runners of all experience levels simply by showing up to local group runs, from people training for their first 5K to someone who had completed 27 marathons. One runner told me, \"You just have to show up,\" and that has been my experience too. I enjoy hearing how different people train, what they've learned over the years, and the pieces of advice they pick up along the way",
     },
@@ -380,14 +397,34 @@ export default function Home() {
                     <p>{interest.description}</p>
                   </div>
                   <div className="interest-media">
-                    <Image
-                      src={interest.image}
-                      alt={interest.title}
-                      width={interest.layout === "split" ? 720 : 1200}
-                      height={interest.layout === "split" ? 1280 : 800}
-                      className="interest-image"
-                      unoptimized={interest.image.endsWith(".gif")}
-                    />
+                    {"collage" in interest && interest.collage ? (
+                      <div
+                        className="interest-collage"
+                        role="img"
+                        aria-label="Photo collage from half marathon training"
+                      >
+                        {interest.collage.map((photo) => (
+                          <div key={photo.src} className="interest-collage-cell">
+                            <Image
+                              src={photo.src}
+                              alt={photo.alt}
+                              width={900}
+                              height={900}
+                              className="interest-collage-image"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <Image
+                        src={interest.image!}
+                        alt={interest.title}
+                        width={1200}
+                        height={800}
+                        className="interest-image"
+                        unoptimized={interest.image!.endsWith(".gif")}
+                      />
+                    )}
                   </div>
                 </div>
               </article>
