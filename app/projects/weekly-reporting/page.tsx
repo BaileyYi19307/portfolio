@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import CaseShell from "@/app/components/CaseShell";
 
 function Figure({
   src,
@@ -26,12 +26,8 @@ function Figure({
 
 export default function WeeklyReportingPage() {
   return (
-    <main className="max-w-4xl mx-auto p-8">
-      <Link href="/" className="text-sm underline">
-        ← Back to Projects
-      </Link>
-
-      <section className="mt-8 mb-10">
+    <CaseShell>
+      <section className="case-hero">
         <p className="text-sm uppercase tracking-wide text-gray-500 mb-2"></p>
 
         <h1 className="text-4xl font-bold mb-4">Weekly Reporting Platform</h1>
@@ -73,18 +69,18 @@ export default function WeeklyReportingPage() {
 
         <ul className="list-disc pl-6 space-y-2">
           <li>
-            Reporting information was spread across multiple spreadsheets.
+            Reporting information was spread across multiple spreadsheets
           </li>
-          <li>Departments submitted updates in inconsistent formats.</li>
-          <li>Submission tracking was handled manually.</li>
-          <li>Reminder emails required manual coordination.</li>
+          <li>Departments submitted updates in inconsistent formats</li>
+          <li>Submission tracking was handled manually</li>
+          <li>Reminder emails required manual coordination</li>
           <li>
             Topic selection for leadership review involved back-and-forth email
-            communication.
+            communication
           </li>
           <li>
             There was no centralized review queue for editing, tracking, or
-            preserving report history.
+            preserving report history
           </li>
         </ul>
       </section>
@@ -114,7 +110,7 @@ export default function WeeklyReportingPage() {
         <Figure
           src="/weekly-reporting/weekly-submission-app.png"
           alt="Weekly submission Power Apps interface"
-          caption="Standardized Power Apps submission interface used by department heads to enter weekly reporting updates."
+          caption="Standardized Power Apps submission interface used by department heads to enter weekly reporting updates"
         />
 
         <h3 className="text-xl font-semibold mb-3">
@@ -130,7 +126,7 @@ export default function WeeklyReportingPage() {
         <Figure
           src="/weekly-reporting/weekly-reporting-flow.png"
           alt="Weekly reporting workflow diagram"
-          caption="End-to-end weekly reporting workflow from department-head submission to SharePoint storage, review, topic selection, and final report distribution."
+          caption="End-to-end weekly reporting workflow from department-head submission to SharePoint storage, review, topic selection, and final report distribution"
         />
       </section>
 
@@ -150,7 +146,7 @@ export default function WeeklyReportingPage() {
         <Figure
           src="/weekly-reporting/version-history-flow.png"
           alt="Version history workflow diagram"
-          caption="Version history design separating editable reporting copies from preserved original submissions."
+          caption="Version history design separating editable reporting copies from preserved original submissions"
         />
       </section>
 
@@ -181,7 +177,7 @@ export default function WeeklyReportingPage() {
             <Figure
               src="/weekly-reporting/review-queue.png"
               alt="Leadership review queue interface"
-              caption="Prototype review queue showing how managers can review, edit, return, approve, and track submitted reporting items."
+              caption="Prototype review queue showing how managers can review, edit, return, approve, and track submitted reporting items"
             />
           </div>
           <h3 className="text-xl font-semibold mb-3">
@@ -207,12 +203,12 @@ export default function WeeklyReportingPage() {
           <Figure
             src="/weekly-reporting/topic-selection-email-A.png"
             alt="Weekly topic selection email"
-            caption="Weekly topic selection email showing submission status, categorized topics, and numbered selections for leadership review."
+            caption="Weekly topic selection email showing submission status, categorized topics, and numbered selections for leadership review"
           />
 
           <p className="text-sm text-gray-600 mb-8">
             Weekly topic selection email showing submission status, categorized
-            topics, and numbered selections.
+            topics, and numbered selections
           </p>
 
           <h4 className="font-semibold mb-2">Backlog Management</h4>
@@ -227,12 +223,12 @@ export default function WeeklyReportingPage() {
           <Figure
             src="/weekly-reporting/topic-selection-email-B.png"
             alt="Backlogged items in topic selection email"
-            caption="Backlogged topics remain available for future selection so unselected updates are not lost between reporting cycles."
+            caption="Backlogged topics remain available for future selection so unselected updates are not lost between reporting cycles"
           />
 
           <p className="text-sm text-gray-600 mb-8">
             Backlogged topics remain available for future selection and
-            reporting.
+            reporting
           </p>
 
           <h4 className="font-semibold mb-2">
@@ -247,7 +243,7 @@ export default function WeeklyReportingPage() {
           <Figure
             src="/weekly-reporting/num-selection.png"
             alt="Topic selection and final report workflow diagram"
-            caption="Topic selection workflow showing how numbered email replies are parsed, mapped back to SharePoint records, and used to generate the final report."
+            caption="Topic selection workflow showing how numbered email replies are parsed, mapped back to SharePoint records, and used to generate the final report"
           />
         </div>
       </section>
@@ -278,21 +274,21 @@ export default function WeeklyReportingPage() {
         <h2 className="text-2xl font-semibold mb-3">Results</h2>
 
         <ul className="list-disc pl-6 space-y-2">
-          <li>Deployed and actively used by 5 departments.</li>
-          <li>Collected 17+ production submissions.</li>
+          <li>Deployed and actively used by 5 departments</li>
+          <li>Collected 17+ production submissions</li>
           <li>
             Replaced spreadsheet-based weekly reporting with a centralized
-            application.
+            application
           </li>
-          <li>Standardized reporting formats across departments.</li>
+          <li>Standardized reporting formats across departments</li>
           <li>
             Automated reminder emails, submission tracking, topic selection, and
-            report generation.
+            report generation
           </li>
           <li>
-            Supported executive topic selection by the laboratory president.
+            Supported executive topic selection by the laboratory president
           </li>
-          <li>Demoed and shared with NEC stakeholders in Japan and Europe.</li>
+          <li>Demoed and shared with NEC stakeholders in Japan and Europe</li>
         </ul>
       </section>
 
@@ -378,7 +374,7 @@ export default function WeeklyReportingPage() {
         <Figure
           src="/weekly-reporting/global-rollout-flow.png"
           alt="Global rollout architecture"
-          caption="Proposed global rollout architecture where regional labs maintain local SharePoint and Power Automate workflows while routing reports into a centralized process."
+          caption="Proposed global rollout architecture where regional labs maintain local SharePoint and Power Automate workflows while routing reports into a centralized process"
         />
       </section>
       <section className="mb-12">
@@ -409,7 +405,7 @@ export default function WeeklyReportingPage() {
         <Figure
           src="/weekly-reporting/hierarchical-review-prototype.png"
           alt="Hierarchical review workflow prototype"
-          caption="Prototype for a cascading review workflow with approval, return-for-correction, executive-topic designation, and version history."
+          caption="Prototype for a cascading review workflow with approval, return-for-correction, executive-topic designation, and version history"
         />
       </section>
       <section>
@@ -420,6 +416,6 @@ export default function WeeklyReportingPage() {
           Outlook, ExcelScript
         </p>
       </section>
-    </main>
+    </CaseShell>
   );
 }

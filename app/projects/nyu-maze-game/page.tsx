@@ -1,14 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
+import CaseShell from "@/app/components/CaseShell";
 
 export default function NYUMazeGamePage() {
   return (
-    <main className="max-w-4xl mx-auto p-8">
-      <Link href="/" className="text-sm underline">
-        ← Back to Projects
-      </Link>
-
-      <section className="mt-8 mb-12">
+    <CaseShell>
+      <section className="case-hero">
         <p className="text-sm uppercase tracking-wide text-gray-500 mb-2">
           First CS Project · Processing PDE
         </p>
@@ -20,6 +16,20 @@ export default function NYUMazeGamePage() {
         <p className="text-lg">
           A small educational maze game I built in Processing after taking my
           first computer science course.
+        </p>
+      </section>
+
+      <section className="mb-12">
+        <Image
+          src="/nyu-maze-game/welcome-screen-full.jpg"
+          alt="NYU maze game welcome screen with flashlight preview"
+          width={1226}
+          height={1280}
+          className="w-full rounded-lg border bg-black"
+        />
+        <p className="text-sm text-gray-600 mt-2">
+          Welcome screen from the Processing maze game, including the flashlight
+          preview of the library floor
         </p>
       </section>
 
@@ -59,7 +69,7 @@ export default function NYUMazeGamePage() {
         </video>
 
         <p className="text-sm text-gray-600 mt-2">
-          Gameplay demo from my first computer science project.
+          Gameplay demo from my first computer science project
         </p>
       </section>
 
@@ -174,6 +184,6 @@ export default function NYUMazeGamePage() {
           View Original Game Report →
         </a>
       </section>
-    </main>
+    </CaseShell>
   );
 }

@@ -1,13 +1,9 @@
-import Link from "next/link";
+import CaseShell from "@/app/components/CaseShell";
 
 export default function NECLAProjectTrackingPage() {
   return (
-    <main className="max-w-4xl mx-auto p-8">
-      <Link href="/" className="text-sm underline">
-        ← Back to Projects
-      </Link>
-
-      <section className="mt-8 mb-12">
+    <CaseShell>
+      <section className="case-hero">
         <p className="text-sm uppercase tracking-wide text-gray-500 mb-2">
           Full-Stack Internal Operations Platform
         </p>
@@ -30,7 +26,7 @@ export default function NECLAProjectTrackingPage() {
         />
 
         <p className="text-sm text-gray-600 mt-2">
-          Current planning dashboard prototype used for stakeholder feedback.
+          Current planning dashboard prototype used for stakeholder feedback
         </p>
       </section>
 
@@ -67,23 +63,23 @@ export default function NECLAProjectTrackingPage() {
         <ul className="list-disc pl-6 space-y-2">
           <li>
             Project summary, pricing, labor, invoice, and actual cost data lived
-            in separate files.
+            in separate files
           </li>
           <li>
             Reporting often required manually copying and reconciling values
-            across spreadsheets.
+            across spreadsheets
           </li>
           <li>
             Labor planning depended on upstream calculations like total funding,
-            incremental spend, and remaining net funding.
+            incremental spend, and remaining net funding
           </li>
           <li>
             Planned costs and actual costs were tracked separately, making it
-            harder to compare them side by side.
+            harder to compare them side by side
           </li>
           <li>
             Ad hoc leadership questions required rebuilding custom views from
-            manually maintained tracking sheets.
+            manually maintained tracking sheets
           </li>
         </ul>
       </section>
@@ -149,7 +145,7 @@ Invoice Forecasting and Reporting`}
           />
 
           <p className="text-sm text-gray-600 mt-2">
-            Initial MVP used to validate the planning workflow.
+            Initial MVP used to validate the planning workflow
           </p>
         </div>
 
@@ -161,7 +157,7 @@ Invoice Forecasting and Reporting`}
           />
 
           <p className="text-sm text-gray-600 mt-2">
-            Later prototype used for faster iteration and feedback.
+            Later prototype used for faster iteration and feedback
           </p>
         </div>
       </section>
@@ -194,7 +190,7 @@ Invoice Forecasting and Reporting`}
 
         <p className="text-sm text-gray-600 mt-2">
           Create project workflow for entering project details, funding,
-          duration, department, lead researcher, and notes.
+          duration, department, lead researcher, and notes
         </p>
       </section>
 
@@ -214,13 +210,13 @@ Invoice Forecasting and Reporting`}
         </p>
 
         <ul className="list-disc pl-6 space-y-2">
-          <li>Calculate total incremental spend.</li>
-          <li>Derive remaining funding available for labor.</li>
-          <li>Convert labor budget into available researcher hours.</li>
-          <li>Distribute planned hours across researchers and project months.</li>
+          <li>Calculate total incremental spend</li>
+          <li>Derive remaining funding available for labor</li>
+          <li>Convert labor budget into available researcher hours</li>
+          <li>Distribute planned hours across researchers and project months</li>
           <li>
             Show whether the current plan is under or over the available labor
-            budget.
+            budget
           </li>
         </ul>
       </section>
@@ -234,7 +230,7 @@ Invoice Forecasting and Reporting`}
 
         <p className="text-sm text-gray-600 mt-2">
           Labor planning table with researchers as rows and project months as
-          columns.
+          columns
         </p>
       </section>
 
@@ -265,7 +261,7 @@ Invoice Forecasting and Reporting`}
 
         <p className="text-sm text-gray-600 mt-2">
           Equipment planning view, representing one incremental spend category
-          that feeds into labor budget calculations.
+          that feeds into labor budget calculations
         </p>
       </section>
 
@@ -297,7 +293,7 @@ Invoice Forecasting and Reporting`}
 
         <p className="text-sm text-gray-600 mt-2">
           Portfolio overview for managing externally funded projects across the
-          organization.
+          organization
         </p>
       </section>
 
@@ -331,7 +327,7 @@ Invoice Forecasting and Reporting`}
           Initial PostgreSQL schema used to validate the planning workflow. As
           the platform evolved through stakeholder feedback, the data model
           expanded to support additional planning stages, reporting, and
-          portfolio-level functionality.
+          portfolio-level functionality
         </p>
       </section>
 
@@ -364,15 +360,15 @@ Invoice Forecasting and Reporting`}
         </p>
 
         <ul className="list-disc pl-6 space-y-2">
-          <li>Project creation and portfolio view.</li>
-          <li>Project summary management.</li>
-          <li>Researcher assignment to projects.</li>
-          <li>Editable monthly labor planning tables.</li>
-          <li>Persistent researcher-hour planning data.</li>
-          <li>Funding-based labor budget calculations.</li>
-          <li>Equipment, travel, and shipping planning sections.</li>
-          <li>Foundation for planned vs. actual tracking.</li>
-          <li>Foundation for invoice forecasting and project reporting.</li>
+          <li>Project creation and portfolio view</li>
+          <li>Project summary management</li>
+          <li>Researcher assignment to projects</li>
+          <li>Editable monthly labor planning tables</li>
+          <li>Persistent researcher-hour planning data</li>
+          <li>Funding-based labor budget calculations</li>
+          <li>Equipment, travel, and shipping planning sections</li>
+          <li>Foundation for planned vs. actual tracking</li>
+          <li>Foundation for invoice forecasting and project reporting</li>
         </ul>
       </section>
 
@@ -409,6 +405,6 @@ Invoice Forecasting and Reporting`}
           Replit
         </p>
       </section>
-    </main>
+    </CaseShell>
   );
 }

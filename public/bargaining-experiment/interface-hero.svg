@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" fill="none">
+  <rect width="1600" height="1000" fill="#0B1220"/>
+  <rect x="80" y="70" width="1440" height="860" rx="24" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <rect x="80" y="70" width="1440" height="78" rx="24" fill="#0F766E"/>
+  <rect x="80" y="124" width="1440" height="24" fill="#0F766E"/>
+  <text x="120" y="118" fill="white" font-family="ui-sans-serif, system-ui" font-size="28" font-weight="600">Bargaining Experiment · oTree</text>
+  <text x="1180" y="118" fill="#D9F3EF" font-family="ui-sans-serif, system-ui" font-size="22">Time Remaining: 2:47</text>
+  <text x="800" y="220" text-anchor="middle" fill="#0B1220" font-family="ui-sans-serif, system-ui" font-size="26" font-weight="600">Participant A</text>
+  <circle cx="720" cy="270" r="28" fill="#DBEAFE"/>
+  <circle cx="880" cy="270" r="28" fill="#FCE7F3"/>
+  <text x="800" y="280" text-anchor="middle" fill="#334155" font-family="ui-sans-serif, system-ui" font-size="18">gender-visible icons</text>
+  <!-- triangle of nodes -->
+  <g transform="translate(800 360)">
+    <polygon points="0,420 -360,0 360,0" fill="#ECFDF5" stroke="#99F6E4" stroke-width="3"/>
+  </g>
+  <g fill="#0F766E">
+    <!-- approximate node grid -->
+    <circle cx="800" cy="430" r="10"/><circle cx="760" cy="480" r="10"/><circle cx="840" cy="480" r="10"/>
+    <circle cx="720" cy="530" r="10"/><circle cx="800" cy="530" r="10"/><circle cx="880" cy="530" r="10"/>
+    <circle cx="680" cy="580" r="10"/><circle cx="760" cy="580" r="10"/><circle cx="840" cy="580" r="10"/><circle cx="920" cy="580" r="10"/>
+    <circle cx="640" cy="630" r="10"/><circle cx="720" cy="630" r="10"/><circle cx="800" cy="630" r="10"/><circle cx="880" cy="630" r="10"/><circle cx="960" cy="630" r="10"/>
+    <circle cx="600" cy="680" r="10"/><circle cx="680" cy="680" r="10"/><circle cx="760" cy="680" r="10"/><circle cx="840" cy="680" r="10"/><circle cx="920" cy="680" r="10"/><circle cx="1000" cy="680" r="10"/>
+  </g>
+  <circle cx="800" cy="530" r="14" fill="#F59E0B" stroke="#FFFFFF" stroke-width="3"/>
+  <circle cx="720" cy="630" r="14" fill="#3B82F6" stroke="#FFFFFF" stroke-width="3"/>
+  <circle cx="880" cy="630" r="14" fill="#10B981" stroke="#FFFFFF" stroke-width="3"/>
+  <text x="800" y="820" text-anchor="middle" fill="#0B1220" font-family="ui-sans-serif, system-ui" font-size="24" font-weight="600">You</text>
+  <text x="800" y="860" text-anchor="middle" fill="#64748B" font-family="ui-sans-serif, system-ui" font-size="20">Dynamic offers · real-time agreement · currency decay</text>
+  <rect x="120" y="880" width="220" height="28" rx="8" fill="#CCFBF1"/>
+  <text x="130" y="900" fill="#0B3D39" font-family="ui-sans-serif, system-ui" font-size="16">Python / JavaScript / oTree</text>
+</svg>
